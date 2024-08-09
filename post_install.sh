@@ -7,7 +7,7 @@ set -e
 ibus restart
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape', 'compose:rctrl']"
 
-sudo apt install -y ack ccrypt dos2unix silversearcher-ag tree
+sudo apt install -y ack ccrypt dos2unix silversearcher-ag tree htop
 sudo apt install -y gimp inkscape dconf-editor
 sudo snap install dust
 
