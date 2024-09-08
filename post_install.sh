@@ -88,18 +88,28 @@ plugins=(git vi-mode zsh-interactive-cd)
 
 source $ZSH/oh-my-zsh.sh
 
-alias vim=nvim
-alias view="nvim -R";
-alias vimdiff="nvim -d";
-
-alias ll='eza -lh --group-directories-first --icons'
-alias lla='ll -a'
-alias llt='eza --tree --level=2 --long --icons --git'
-
 alias cdb="cd $HOME/code/ruby/Bitcoin-Top-Club";
 alias cdc="cd $HOME/code/leetcode/clojure/solutions";
 alias cdg="cd $HOME/code/ruby/Web3-Game";
 alias cdr="cd $HOME/code/leetcode/solution_template";
+
+alias d='docker'
+alias r='rails'
+alias bat='batcat'
+alias lzg='lazygit'
+alias lzd='lazydocker'
+alias fd=fdfind
+
+alias n='nvim'
+alias vim=nvim
+alias view="nvim -R";
+alias vimdiff="nvim -d";
+
+alias cal="ncal -M -b"
+
+alias ll='eza -lh --group-directories-first --icons'
+alias lla='ll -a'
+alias llt='eza --tree --level=2 --long --icons --git'
 
 if command -v mise &> /dev/null; then
   eval "$(mise activate zsh)"
