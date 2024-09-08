@@ -20,8 +20,7 @@ fi
 ibus restart
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape', 'compose:rctrl']"
 
-sudo apt install -y ack ccrypt dos2unix silversearcher-ag tree htop
-sudo apt install -y gimp inkscape dconf-editor
+sudo apt install -y ack ccrypt dos2unix silversearcher-ag tree htop ncal aptitude
 sudo apt install -y emacs gimp inkscape dconf-editor
 sudo snap install dust
 
@@ -84,7 +83,7 @@ ZSH_THEME="robbyrussell"
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13
 
-plugins=(git vi-mode zsh-interactive-cd)
+plugins=(git vi-mode zsh-interactive-cd command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
