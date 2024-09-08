@@ -3,13 +3,34 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+# Not deterministic dotfiles first
+DOTFILES_DIR=~/Dropbox/dotfiles
+if [ ! -d $DOTFILES_DIR ]; then
+  echo $DOTFILES_DIR should exist. Is Dropbox installed and synced?
+  exit 0
+else
+  echo "symlinking dotfiles..."
+  DOTFILES=$(ls -A "$DOTFILES_DIR")
+  for f in $DOTFILES; do
+    [ ! -d "$HOME/$f" ] && ln -sf "$DOTFILES_DIR/$f" "$HOME/.$f"
+  done
+fi
+
 # xkb options
 ibus restart
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape', 'compose:rctrl']"
 
 sudo apt install -y ack ccrypt dos2unix silversearcher-ag tree htop
 sudo apt install -y gimp inkscape dconf-editor
+sudo apt install -y emacs gimp inkscape dconf-editor
 sudo snap install dust
+
+# Spacemacs
+if [ -d ~/.emacs.d/.git ]; then
+  echo "Spacemacs is installed."
+else
+  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+fi
 
 # Wez's Terminal Emulator
 if command -v wezterm &>/dev/null; then
