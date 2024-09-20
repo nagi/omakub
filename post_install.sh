@@ -16,9 +16,11 @@ else
   done
 fi
 
-# xkb options
 ibus restart
+# xkb options
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape', 'compose:rctrl']"
+# Fast animations (default Omakub is "almost none")
+gsettings set org.gnome.shell.extensions.just-perfection animation 4
 
 sudo apt install -y ack ccrypt dos2unix silversearcher-ag tree htop ncal aptitude
 sudo apt install -y emacs gimp inkscape dconf-editor
