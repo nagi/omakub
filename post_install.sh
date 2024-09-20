@@ -79,6 +79,8 @@ fi
 
 cat <<"EOF" >~/.zshrc
 export ZSH="$HOME/.oh-my-zsh"
+export OMAKUB_PATH="$HOME/.local/share/omakub"
+export PATH="./bin:$HOME/.local/bin:$OMAKUB_PATH/bin:$PATH"
 
 ZSH_THEME="robbyrussell"
 
