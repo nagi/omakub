@@ -16,7 +16,15 @@ else
   done
 fi
 
+# Gnome settings
+# TODO: Surround with `if $RUNNING_GNOME; then` to support headless installs.
+
 ibus restart
+
+# Screen blank and lock settings
+gsettings set org.gnome.desktop.session idle-delay 480      # 8 minutes
+gsettings set org.gnome.desktop.screensaver lock-delay 3600 # 1 hour
+
 # Reserve slots for custom keybindings (Blows away Omakub bindings)
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']"
 
@@ -36,15 +44,15 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command "sh -c -- $DOTFILES_DIR/tada"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding '<Super>Pause'
 
-ibus restart
 # xkb options
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape', 'compose:rctrl']"
 # Fast animations (default Omakub is "almost none")
 gsettings set org.gnome.shell.extensions.just-perfection animation 4
 
 sudo apt install -y ack ccrypt dos2unix silversearcher-ag tree htop ncal aptitude
-sudo apt install -y emacs gimp inkscape dconf-editor
 sudo snap install dust
+
+sudo apt install -y emacs gimp inkscape dconf-editor
 
 # Spacemacs
 if [ -d ~/.emacs.d/.git ]; then
@@ -186,7 +194,6 @@ cat <<EOF >~/.gitignore_global
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
