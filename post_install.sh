@@ -147,6 +147,12 @@ if command -v mise &> /dev/null; then
 fi
 EOF
 
+cat <<"EOF" >~/.inputrc
+set editing-mode vi
+set keymap vi
+set bell-style visible
+EOF
+
 # .gitconfig
 cat <<EOF >~/.gitconfig
 [user]
