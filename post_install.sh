@@ -4,7 +4,7 @@
 set -e
 
 # Not deterministic dotfiles first
-DOTFILES_DIR=~/Dropbox/dotfiles
+DOTFILES_DIR=~/Dropbox/Linux/dotfiles
 if [ ! -d $DOTFILES_DIR ]; then
   echo $DOTFILES_DIR should exist. Is Dropbox installed and synced?
   exit 0
@@ -49,9 +49,11 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape', '
 # Fast animations (default Omakub is "almost none")
 gsettings set org.gnome.shell.extensions.just-perfection animation 4
 
+# Console apps
 sudo apt install -y ack ccrypt dos2unix silversearcher-ag tree htop ncal aptitude
 sudo snap install dust
 
+# GUI apps
 sudo apt install -y emacs gimp inkscape dconf-editor
 
 # Spacemacs
@@ -115,7 +117,7 @@ ZSH_THEME="robbyrussell"
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13
 
-plugins=(git vi-mode zsh-interactive-cd command-not-found)
+plugins=(git vi-mode zsh-interactive-cd command-not-found bundler)
 
 source $ZSH/oh-my-zsh.sh
 
