@@ -112,12 +112,15 @@ export ZSH="$HOME/.oh-my-zsh"
 export OMAKUB_PATH="$HOME/.local/share/omakub"
 export PATH="./bin:$HOME/.local/bin:$OMAKUB_PATH/bin:$PATH"
 
+export EDITOR="nvim"
+export SUDO_EDITOR="$EDITOR"
+
 ZSH_THEME="robbyrussell"
 
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13
 
-plugins=(git vi-mode zsh-interactive-cd command-not-found bundler)
+plugins=(git vi-mode zsh-interactive-cd command-not-found bundler fzf)
 
 source $ZSH/oh-my-zsh.sh
 
