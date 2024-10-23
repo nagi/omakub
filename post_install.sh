@@ -148,6 +148,8 @@ alias ll='eza -lh --group-directories-first --icons'
 alias lla='ll -a'
 alias llt='eza --tree --level=2 --long --icons --git'
 
+alias httpss="python3 -m http.server 8000"
+
 if command -v mise &> /dev/null; then
   eval "$(mise activate zsh)"
 fi
