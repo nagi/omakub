@@ -51,6 +51,7 @@ gsettings set org.gnome.shell.extensions.just-perfection animation 4
 
 # Console apps
 sudo apt install -y ack ccrypt dos2unix silversearcher-ag tree htop ncal aptitude
+sudo apt install -y luarocks # for neovim
 sudo snap install dust
 
 # GUI apps
